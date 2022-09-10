@@ -14,7 +14,24 @@ public class FormTestZero {
         $x("//span[@class='button__content']")
                 .click();
 
-        $x("//*[@data-test-id='name']//span[@class='input__sub']")
+        $x("//*[@data-test-id='name'][contains(@class, 'input_invalid')]//span[@class='input__sub']")
+                .shouldHave(exactText("Поле обязательно для заполнения"));
+    }
+
+    @Test
+    void shouldSubmitRequestInvalidNameZero() {
+        open("http://localhost:9999");
+
+        $x("//*[@data-test-id='phone']//input")
+                .setValue("+79210001020");
+
+        $x("//span[@class='checkbox__box']")
+                .click();
+
+        $x("//span[@class='button__content']")
+                .click();
+
+        $x("//*[@data-test-id='name'][contains(@class, 'input_invalid')]//span[@class='input__sub']")
                 .shouldHave(exactText("Поле обязательно для заполнения"));
     }
 
@@ -25,10 +42,13 @@ public class FormTestZero {
         $x("//*[@data-test-id='name']//input")
                 .setValue("Вася Пупкин");
 
+        $x("//span[@class='checkbox__box']")
+                .click();
+
         $x("//span[@class='button__content']")
                 .click();
 
-        $x("//*[@data-test-id='phone']//span[@class='input__sub']")
+        $x("//*[@data-test-id='phone'][contains(@class, 'input_invalid')]//span[@class='input__sub']")
                 .shouldHave(exactText("Поле обязательно для заполнения"));
     }
 }

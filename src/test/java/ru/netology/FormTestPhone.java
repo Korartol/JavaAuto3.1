@@ -23,7 +23,7 @@ public class FormTestPhone {
         $x("//span[@class='button__content']")
                 .click();
 
-        $x("//*[@data-test-id='phone']//span[@class='input__sub']")
+        $x("//*[@data-test-id='phone'][contains(@class, 'input_invalid')]//span[@class='input__sub']")
                 .shouldHave(exactText("Телефон указан неверно. Должно быть 11 цифр, например, +79012345678."));
 
     }

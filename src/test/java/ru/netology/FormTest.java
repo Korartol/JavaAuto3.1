@@ -23,8 +23,8 @@ public class FormTest {
         $x("//span[@class='button__content']")
                 .click();
 
-        $(".Success_successBlock__2L3Cw")
-                .shouldHave(exactText("Ваша заявка успешно отправлена! Наш менеджер свяжется с вами в ближайшее время."));
-
+        $x("//*[@data-test-id='order-success']")
+                .shouldHave(exactText("Ваша заявка успешно отправлена! " +
+                        "Наш менеджер свяжется с вами в ближайшее время."));
     }
 }

@@ -23,9 +23,8 @@ public class FormTestName {
         $x("//span[@class='button__content']")
                 .click();
 
-        $x("//*[@data-test-id='name']//span[@class='input__sub']")
+        $x("//*[@data-test-id='name'][contains(@class, 'input_invalid')]//*[@class='input__sub']")
                 .shouldHave(exactText("Имя и Фамилия указаные неверно. Допустимы только русские буквы, " +
                         "пробелы и дефисы."));
-
     }
 }
